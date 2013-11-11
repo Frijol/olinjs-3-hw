@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+	h1= title
+
+	h1 Enter an ingredient.
+
+	form(method='post', action='/ingredient/create', id="newform")
+		| New Ingredient: 
+		input(name='ingredient', id="newinput")
+		|  Cost: 
+		input(name='cost', id="newinput")
+		button(type='submit')
+			| Done
+
+
+#  form(method='post', action='/', id="newform")
+#    | New todo item:
+#    input(name='todo', id="newinput")
+#    button('type='submit')
+#      | Done
+#
+#  ul(id="todolist")
+#    each todo, i in todos
+#      li
+#        div= todo
+#        form(method='post', action='/delete/' + i) 
+#         button
+#            | Delete
