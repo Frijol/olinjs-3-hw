@@ -1,14 +1,4 @@
-
-/**
- * Module dependencies.
- */
-
- /*
- Instructions:
- /ingredient/new => shows a form that allows someone to add a new ingredient
- into the system. An ingredient object consists  of an ingredient name and a
- cost, for example {ingredient: cheese, cost:2}. DONE
-
+/*
 /order/new => shows a form which will allow customers to create a
 new burger. There should be a checklist of all available ingredients
 and a "submit order" button. Clicking on the "submit order" button
