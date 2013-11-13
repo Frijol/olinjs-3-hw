@@ -22,6 +22,7 @@ order from the list of orders in the browser (again, without refreshing the page
 */
 
 var express = require('express')
+  , mongoose = require('mongoose')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
@@ -46,6 +47,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+mongoose.connect('mongodb://localhost/burgers');
 
 app.get('/', routes.index);
 app.get('/ingredient/new', ingredient.new);

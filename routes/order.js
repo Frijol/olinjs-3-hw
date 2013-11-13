@@ -1,8 +1,11 @@
-Models = require('../models.js');
-Order = Models.Order;
+Order = require('../models/order.js');
+Ingredient = require('../models/ingredient.js');
 
 exports.new = function (req, res) {
-	res.render('../views/neworder.jade', {});
+	var ingredients = Ingredient.find({}, function (err, docs) {
+		if (err) throw err;
+		res.render('neworder', {ingredients: docs.sort()})
+	});
 }
 
 exports.orders = function (req, res) {
