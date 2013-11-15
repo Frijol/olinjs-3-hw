@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-mongoose.connect('mongodb://localhost/burgers');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/burgers');
 
 app.get('/', routes.index);
 app.get('/ingredient/new', ingredient.new);
