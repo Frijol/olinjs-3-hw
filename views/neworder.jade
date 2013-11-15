@@ -1,0 +1,20 @@
+extends layout
+
+block content
+
+	h1= title
+
+	h1 A New (world) Order. 
+
+	form(method='post', action='/order/create', id="newform")
+		|Customer Name:
+		input(name='customerName', id = 'newinput')
+		div
+		|Ingredients:
+		each ingredient, i in ingredients
+			div
+			input(name=ingredient.ingredient, id="newinput", type="checkbox")
+			| #{ingredient.ingredient}: $#{ingredient.cost}
+		div
+		button(type='submit')
+			|Submit

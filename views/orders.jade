@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+	h1= title
+
+	h1 All Pending Orders
+
+	div
+		each order, i in orders
+			div(value=order) #{order.customerName}:#{order.ingredients}
+			form(class='deleteOrder', method='post', action='/orders/complete')
+				input(type="hidden", value="#{order._id}", name="id")
+				button
+					|Completed
