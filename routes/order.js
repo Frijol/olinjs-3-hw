@@ -31,3 +31,10 @@ exports.orders = function (req, res) {
 		res.render('orders', {orders: docs.sort()});
 	});
 }
+
+exports.complete = function (req, res) {
+	var delorders = Order.findOneAndRemove({_id: req.body.id}).exec(function (err, docs) {
+		if (err) throw err;
+		res.redirect('/orders');
+	});
+}
