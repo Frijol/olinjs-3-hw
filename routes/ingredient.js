@@ -5,8 +5,6 @@ exports.new = function (req, res) {
 }
 
 exports.create = function (req, res) {
-	console.log(req.body)
-	console.log(req.body.ingredient, req.body.cost)
 	var newingred = new Ingredient(req.body);
 	newingred.save(function (err) {
 		if (err) throw err;

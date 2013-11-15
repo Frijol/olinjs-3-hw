@@ -44,6 +44,7 @@ app.get('/', routes.index);
 app.get('/ingredient/new', ingredient.new);
 app.post('/ingredient/create', ingredient.create);
 app.get('/order/new', order.new);
+app.post('/order/create', order.create);
 app.get('/orders', order.orders);
 
 http.createServer(app).listen(app.get('port'), function(){

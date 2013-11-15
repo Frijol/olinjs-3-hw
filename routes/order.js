@@ -5,8 +5,24 @@ exports.new = function (req, res) {
 	var ingredients = Ingredient.find({}, function (err, docs) {
 		if (err) throw err;
 		res.render('neworder', {ingredients: docs.sort()});
-		console.log(docs.sort())
 	});
+}
+
+exports.create = function (req, res) {
+	console.log(req.body);
+	ingredlist = []
+	for (i in req.body) {
+		if (i == 'customerName') {
+			name = req.body[i]
+		} else {
+			ingredlist.push(' ' + i)
+		}
+	}
+	var neworder = new Order({customerName: name, ingredients: ingredlist});
+	neworder.save(function (err) {
+		if (err) throw err;
+	});
+	res.redirect('/orders')
 }
 
 exports.orders = function (req, res) {
